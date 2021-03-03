@@ -14,6 +14,8 @@ import org.thymeleaf.spring4.SpringTemplateEngine;
 import org.thymeleaf.spring4.templateresolver.SpringResourceTemplateResolver;
 import org.thymeleaf.spring4.view.ThymeleafViewResolver;
 import org.thymeleaf.templatemode.TemplateMode;
+import service.CustomerService;
+import service.CustomerServiceImpl;
 
 @Configuration
 @EnableWebMvc
@@ -50,6 +52,10 @@ public class AppConfiguration extends WebMvcConfigurerAdapter implements Applica
         viewResolver.setTemplateEngine(templateEngine());
         viewResolver.setCharacterEncoding("UTF-8");
         return viewResolver;
+    }
+    @Bean
+    public CustomerService customerService(){
+        return new CustomerServiceImpl();
     }
 }
 
